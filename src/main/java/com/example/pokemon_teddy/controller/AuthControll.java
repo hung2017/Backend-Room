@@ -65,8 +65,8 @@ public class AuthControll {
         Role roles = roleRepo.findByName("USER").get();
         user.setRoles(Collections.singletonList(roles));
 
-        //userRepo.save(user);
+       // userRepo.save(user);
 
-        return new ResponseEntity<>("User registered success!", HttpStatus.OK);
+        return new ResponseEntity<>("Đăng kí user thành công!", HttpStatus.OK);
     }
 }

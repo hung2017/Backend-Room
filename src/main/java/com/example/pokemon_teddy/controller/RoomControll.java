@@ -42,6 +42,6 @@ public class RoomControll {
     @DeleteMapping("room/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable("id") int id){
         roomService.deleteRoom(id);
-        return ResponseEntity.ok("Xoa phong thanh cong! ");
+        return ResponseEntity.ok("Xoá Room thành công! ");
     }
 }
