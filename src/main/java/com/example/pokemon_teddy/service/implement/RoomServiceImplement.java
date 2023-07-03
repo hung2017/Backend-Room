@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+@Service//đánh dấu lớp thực hiện các nghiệp vụ (business logic)
 public class RoomServiceImplement implements RoomService {
     RoomRepo roomRepo;
     @Autowired

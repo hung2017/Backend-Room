@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-@Service
+@Service //Đánh dấu một lớp là một service được quản lý bởi Spring
 public class CustomUserDetailsService implements UserDetailsService {
     private UserRepo userRepo;
 

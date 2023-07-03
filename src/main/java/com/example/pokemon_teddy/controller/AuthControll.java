@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
-@RestController
-@RequestMapping("/api/auth")
+@RestController //đánh dấu 1 lớp là 1 controller RESTful
+@RequestMapping("/api/auth") //xác định 1 phương thức làm điểm cuối của API
 public class AuthControll {
     private AuthenticationManager authenticationManager;
     private UserRepo userRepo;
@@ -31,7 +31,7 @@ public class AuthControll {
     private PasswordEncoder passwordEncoder;
     private JWTGenerate jwtGenerate;
 
-    @Autowired
+    @Autowired//Chỉ định một phần tử được tự động chèn (dependency injected)
     public AuthControll(AuthenticationManager authenticationManager, UserRepo userRepo,
                         RoleRepo roleRepo, PasswordEncoder passwordEncoder, JWTGenerate jwtGenerate) {
         this.authenticationManager = authenticationManager;
@@ -42,7 +42,7 @@ public class AuthControll {
     }
 
     @PostMapping("login")
-    public ResponseEntity<AuthReponDto> login(@RequestBody LoginDto loginDto){
+    public ResponseEntity<AuthReponDto> login(@RequestBody LoginDto loginDto){//Chỉ định rằng một tham số phương thức được ánh xạ từ phần body của yêu cầu HTTP.
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginDto.getUsername(),
@@ -65,7 +65,7 @@ public class AuthControll {
         Role roles = roleRepo.findByName("USER").get();
         user.setRoles(Collections.singletonList(roles));
 
-       // userRepo.save(user);
+        userRepo.save(user);
 
         return new ResponseEntity<>("Đăng kí user thành công!", HttpStatus.OK);
     }

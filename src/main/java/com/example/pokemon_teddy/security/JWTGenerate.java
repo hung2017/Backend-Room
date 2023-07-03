@@ -31,7 +31,7 @@ public class JWTGenerate {
         return token;
     }
     public String getUsernameFromJWT(String token){
-        Claims claims = Jwts.parserBuilder()
+        Claims claims = Jwts.parserBuilder()//các thông tin chứng thực
                 .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)

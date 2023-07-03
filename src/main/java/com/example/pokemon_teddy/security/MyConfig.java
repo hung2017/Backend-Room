@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-@Configuration
+@Configuration //Đánh dấu một lớp là một cấu hình Spring, nơi các bean và các cấu hình khác có thể được định nghĩa.
 public class MyConfig {
     private JWTAuthEntryPoint authEntryPoint;
     private CustomUserDetailsService userDetailsService;
@@ -36,7 +36,7 @@ public class MyConfig {
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/**").permitAll()
-                .antMatchers("/api/product/create").hasAnyRole("ADMIN","USER")
+                .antMatchers("/api/room/create").hasAnyRole("ADMIN","USER")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
